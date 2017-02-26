@@ -1,16 +1,30 @@
 /**
  * Created by jenniferbondarchuk on 2/25/17.
  */
+
+/**
+ * Cam's Intro to JS Classes and my structure
+ *
+ * Javascript classes are pretty simple - they have a constructor (marked below) which is called by executing "new <type>()"
+ * So to make a user it would be "let newUser = new User(userid);"
+ *
+ * All of the classes I wrote have the "init" method which populates all of the properties of the object.
+ * Rather than initializing all of them you must call the "init" method to populate the fields
+ *
+ *
+ *
+ *
+ */
 (function () {
     "use strict";
     let accessToken;
     let initializedObjects = {};
     class User {
-        constructor (userId) {
+        constructor (userId) { //<---- CONSTRUCTOR
             this.id = userId;
         }
-        init () {
-            FB.api("/" + this.id,
+        async init () {
+            await FB.api("/" + this.id,
                 {
                     access_token: accessToken,
                     fields: "first_name,last_name,name,cover,picture,friends"
@@ -71,7 +85,7 @@
             FB.api("/" + this.id,
                 {
                     access_token: accessToken,
-                    fields: "comments,likes,message,attachments,story"
+                    fields: "comments,likes,message,attachments,story,created_time"
                 },
                 (response) => {
                 console.log(response);
@@ -92,6 +106,7 @@
                         if (response.story) {
                             this.story = response.story;
                         }
+                        this.timestamp = response.created_time;
                         this.message = response.message;
                     } else {
                         throw new Error("Error loading post " + this.id + ": " + JSON.stringify(response));
