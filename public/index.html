@@ -32,7 +32,7 @@
 
 	<script>
 		//user must be logged into fb
-		function initFb(callback){
+		$(document).ready(function initFb(callback){
 		    window.fbAsyncInit = function() {
 		        FB.init({
 		            appId      : '217184532019801',
@@ -52,24 +52,23 @@
 		    }(document, 'script', 'facebook-jssdk'));
 		}
 
-		initFb(function(){
-			FB.api(
-			    "/me/feed",
-				{
-				    access_token : userLoginData.accessToken
-				},
-			    function (response) {
-			      if (response && !response.error) {
-			        console.log(response)
-			      }
-			    }
-			);
-
 
 	        $.getJSON("/me").done(function (userData, resObject) {
 	        	let userLoginData = userData;
+	        	initFb(function(){
+					FB.api(
+					    "/me/feed",
+						{
+						    access_token : userLoginData.accessToken
+						},
+					    function (response) {
+					      if (response && !response.error) {
+					        console.log(response)
+					      }
+					    }
+					);
 	        })
-		})
+		}))
 
 	</script>
 
