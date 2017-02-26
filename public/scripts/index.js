@@ -272,7 +272,9 @@
                 window.me = new User(userData.id);
                 window.me.init((me) => {
                     me.feed.init((feed) => {
-                        $.each(feed.posts, showPost);
+                        $.each(feed.posts, (index, post) => {
+                            showPost(post);
+                        });
                     });
                 });
                 /*FB.api(
