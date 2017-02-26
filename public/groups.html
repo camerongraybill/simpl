@@ -103,7 +103,12 @@
 <body>
 
     <script>
-        console.log(me.first_name)
+        console.log(Window.me.init(me).first_name)
+//            Window.me.init((me) => {
+//                $.each(me.friends, (index, friend) => {
+//                    friend.init(() => {console.log(friend);});
+//                });
+//            });
     </script>
 
 	<nav class="navbar navbar-inverse">
