@@ -102,15 +102,7 @@
 <body>
 
     <script>
-        $(document).ready(function() {
-                window.me.init((me) => {
-                    $.each(me.friends, (index, friend) => {
-                        friend.init(() => {
-                            console.log(friend);
-                        });
-                    });
-                });
-        })
+        console.log(window.me)
     </script>
 
 	<nav class="navbar navbar-inverse">
