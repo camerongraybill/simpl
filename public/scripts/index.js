@@ -39,7 +39,7 @@
                         if (response && !response.error) {
                             console.log(response)
                         }
-                        $.each(response.data, (item) => {
+                        $.each(response.data, (index, item) => {
                             console.log(item);
                             FB.api("/" + item.id, {access_token: userLoginData.accessToken}, (response) => {
                                 console.log(response);
