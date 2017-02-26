@@ -1,0 +1,34 @@
+/* navbar */
+.navbar a.navbar-brand {
+    color: white;
+}
+.navbar-inverse {
+    background-color: #3B5998;
+    border-color: #E7E7E7;
+}
+.btn-msg {
+    background-color: #0084ff;
+    color: white;
+}
+.row.center {
+    text-align: center;
+}
+#il {
+    display: inline-block;
+}
+#name {
+    color: #3B5998;
+    font-size: 17px;
+    vertical-align: bottom;
+    padding-left:1em
+}
+#time {
+    color:     black;
+    font-size: 15px;
+    vertical-align: bottom;
+    padding-left:1em
+}
+ul {
+    list-style-position: inside;
+    padding-left:0;
+}

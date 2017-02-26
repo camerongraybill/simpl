@@ -5,32 +5,14 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="scripts/index.js"></script>
+	<link rel="stylesheet" type="text/css" href="stylesheets/indexFormat.css">
 
-	<link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 
 	<title>Simple.</title>
 
-	<style>
-		/* navbar */
-		.navbar a.navbar-brand {
-			color: white;
-		}
-		.navbar-inverse {
-			background-color: #3B5998;
-			border-color: #E7E7E7;
-		}
-		.btn-msg {
-			background-color: #0084ff;
-			color: white;
-		}
-		.row.center {
-			text-align: center;
-		}
-	</style>
-
 </head>
 <body>
-
 
 <nav class="navbar navbar-inverse">
 	<div class="container">
@@ -58,28 +40,74 @@
 </div>
 
 <div class="row center">
-	<div class="col-sm-4">
+	</br>
+	<div class="col-sm-4" name="col1">
 		<a href="profile.html">
-			<img src="../images/pup1.jpg" class="img-circle" alt="Cinque Terre" width="304" height="236">
+			<img src="images/pup1.jpg" class="img-circle" alt="Cinque Terre" width="304" height="236">
 		</a>
 	</div>
-	<div class="col-sm-offset-4 col-sm-4">
+	<div class="col-sm-4" name="col2">
+		<a href="posts.html">
+			<img src="images/pup3.jpg" class="img-circle" alt="Cinque Terre" width="304" height="236">
+		</a>
+	</div>
+	<div class="col-sm-4" name="col3">
 		<a href="groups.html">
-			<img src="../images/pup2.jpg" class="img-circle" alt="Cinque Terre" width="304" height="236">
+			<img src="images/pup2.jpg" class="img-circle" alt="Cinque Terre" width="304" height="236">
 		</a>
 	</div>
 </div>
 
 <div class="row center">
-	<div class="col-sm-offset-4 col-sm-4">
-		<a href="posts.html">
-			<img src="../images/pup3.jpg" class="img-circle" alt="Cinque Terre" width="304" height="236">
-		</a>
+	<div class="col-sm-offset-1 col-sm-2" name="col1">
+		<div class="alert alert-info">
+			<strong >Profile:</strong> This will take you to a page that displays your:
+			<ul>
+				<li>Timeline</li>
+				<li>About Page</li>
+				<li>Friends</li>
+				<li>Your Photos</li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-sm-offset-2 col-sm-2" name="col2">
+		<div class="alert alert-info">
+			<strong >Groups:</strong> This will take you to a page that displays your:
+			<ul>
+				<li>Groups</li>
+				<li>Calendar</li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-sm-offset-2 col-sm-2" name="col3">
+		<div class="alert alert-info">
+			<strong >Posts:</strong> This will take you to a page that displays your:
+			<ul>
+				<li>Your Posts</li>
+				<li>Photo Albums</li>
+			</ul>
+		</div>
 	</div>
 </div>
 
-<div id="newsfeed">
-	
+<div class="row center">
+	<div class="col-sm-offset-3 col-sm-6 well" align="left">
+		<div id="il" vertical-align="top">
+			<img src="images/tinyallison.png" width="84px" height="84px">
+		</div>
+		<div id="il" vertical-align="bottom">
+			<p id="name">Allison Liu </p>
+			<p id="time">20 mins</p>
+		</div>
+		</br>
+		<div>
+			<h3>Post text</h3>
+		</div>
+		<div>
+			<button type="button" class="btn btn-default">Like</button>
+			<button type="button" class="btn btn-default">Comment</button>
+		</div>
+	</div>
 </div>
 
 
