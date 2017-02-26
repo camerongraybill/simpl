@@ -43,7 +43,7 @@
                                 this.friends.push(new User(friend.id));
                             });
                         }
-                        callback ? callback(this) : null;
+                        typeof callback !== "undefined" ? callback(this) : null;
                     } else {
                         throw new Error("Error loading User " + this.id + ": " + JSON.stringify(response));
                     }
