@@ -5,25 +5,97 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <link rel='stylesheet' href='stylesheets/fullCal/fullcalendar.css' />
+    <script src='stylesheets/fullCal/jquery.min.js'></script>
+    <script src='stylesheets/fullCal/moment.min.js'></script>
+    <script src='stylesheets/fullCal/fullcalendar.js'></script>
+
+	<link rel="stylesheet" type="text/css" href="stylesheets/indexFormat.css">
+
 	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 
-<style>
-	/* navbar */
-	.navbar a.navbar-brand {
-	    color: white;
-	}
-	.navbar-inverse {
-	    background-color: #3B5998;
-	    border-color: #E7E7E7;
-	}
-	.btn-msg {
-		background-color: #0084ff;
-		color: white;
-	}
-	.row.center {
-		text-align: center;
-	}
-</style>
+    <script>
+
+        $(document).ready(function() {
+
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,basicWeek,basicDay'
+                },
+                defaultDate: '2017-02-12',
+                navLinks: true, // can click day/week names to navigate views
+                editable: true,
+                eventLimit: true, // allow "more" link when too many events
+                events: [
+                    {
+                        title: 'All Day Event',
+                        start: '2017-02-01'
+                    },
+                    {
+                        title: 'Long Event',
+                        start: '2017-02-07',
+                        end: '2017-02-10'
+                    },
+                    {
+                        id: 999,
+                        title: 'Repeating Event',
+                        start: '2017-02-09T16:00:00'
+                    },
+                    {
+                        id: 999,
+                        title: 'Repeating Event',
+                        start: '2017-02-16T16:00:00'
+                    },
+                    {
+                        title: 'Conference',
+                        start: '2017-02-11',
+                        end: '2017-02-13'
+                    },
+                    {
+                        title: 'Meeting',
+                        start: '2017-02-12T10:30:00',
+                        end: '2017-02-12T12:30:00'
+                    },
+                    {
+                        title: 'Lunch',
+                        start: '2017-02-12T12:00:00'
+                    },
+                    {
+                        title: 'Meeting',
+                        start: '2017-02-12T14:30:00'
+                    },
+                    {
+                        title: 'Happy Hour',
+                        start: '2017-02-12T17:30:00'
+                    },
+                    {
+                        title: 'Dinner',
+                        start: '2017-02-12T20:00:00'
+                    },
+                    {
+                        title: 'Birthday Party',
+                        start: '2017-02-13T07:00:00'
+                    },
+                    {
+                        title: 'Click for Google',
+                        url: 'http://google.com/',
+                        start: '2017-02-28'
+                    }
+                ]
+            });
+
+        });
+
+    </script>
+
+    <style>
+        #calendar {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+    </style>
 
 </head>
 <body>
@@ -31,14 +103,25 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Simpl.</a>
+				<a class="navbar-brand" href="index.html">Simpl.</a>
 			</div>
 		</div>
 	</nav>
 
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#1" data-toggle="tab">Calendar</a></li>
+        <li><a href="#2" data-toggle="tab">Groups</a></li>
+    </ul>
 
-
-</div>
+    <!-- tab bar content-->
+    <div class="tab-content ">
+        <div class="tab-pane active" id="1">
+            <div id='calendar'></div>
+        </div>
+        <div class="tab-pane" id="2">
+            <h3>Just display group names for now</h3>
+        </div>
+    </div>
 
 </body>
 </html>
