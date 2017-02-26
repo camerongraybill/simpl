@@ -103,7 +103,6 @@
 
     <script>
         $(document).ready(function() {
-            initFb(function () {
                 window.me.init((me) => {
                     $.each(me.friends, (index, friend) => {
                         friend.init(() => {
@@ -111,7 +110,6 @@
                         });
                     });
                 });
-            })
         })
     </script>
 
