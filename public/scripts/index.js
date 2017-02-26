@@ -64,13 +64,18 @@
                     fields: "comments,likes,message"
                 },
                 (response) => {
+                console.log(response);
                     if (response && !response.error) {
-                        $.each(response.comments.data, (ignore, comment) => {
-                            this.comments.push(new Comment(comment.id));
-                        });
-                        $.each(response.likes.data, (ignore, like) => {
-                            this.likes.push(new User(like.id));
-                        });
+                        if (response.comments) {
+                            $.each(response.comments.data, (ignore, comment) => {
+                                this.comments.push(new Comment(comment.id));
+                            });
+                        }
+                        if (response.likes) {
+                            $.each(response.likes.data, (ignore, like) => {
+                                this.likes.push(new User(like.id));
+                            });
+                        }
                         this.message = response.message;
                     } else {
                         throw new Error("Error loading post " + this.id + ": " + JSON.stringify(response));
@@ -86,7 +91,6 @@
 
         init() {
             this.posts = [];
-            this.nextCall = "";
             FB.api("/" + this.userId + "/feed",
                 {
                     access_token: accessToken
