@@ -14,6 +14,8 @@ const config = require("./config");
 
 const app = express();
 
+const User = require("./models/models").user.Model;
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
@@ -27,7 +29,26 @@ passport.use(new facebookStrategy({
     callbackURL: "http://simpl.eastus.cloudapp.azure.com/auth/facebook/callback"
 },
     (accessToken, refreshToken, profile, callback) => {
-        console.log(accessToken, refreshToken, profile, callback);
+        const newGuy = new User();
+        newGuy.fullName = profile.displayName;
+        newGuy.accessToken = accessToken;
+        newGuy.refreshToken = refreshToken;
+        console.log({
+            accessToken: accessToken,
+            refreshToken: refreshToken,
+            profile: profile,
+            callback: callback,
+            user: newGuy.toJSON()
+        });
+        newGuy.save((err) => {
+            if (err) {
+                console.log(err);
+                callback(err);
+            } else {
+                callback(null, newGuy.toJSON());
+            }
+        });
+
     }));
 
 app.get("/auth/facebook", passport.authenticate("facebook"));
@@ -36,6 +57,13 @@ app.get("/auth/facebook/callback", passport.authenticate('facebook', {failureRed
     res.redirect("/");
 });
 
+const session = require("express-session")({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: false
+});
+
+app.use(session);
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
