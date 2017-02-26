@@ -87,7 +87,7 @@
 //        }, 1000);
         setTimeout(function() {
             window.me.init(function() {
-                t3.innerHTML =  $.each(me.friends, function(index, friend) {
+                $.each(me.friends, function(index, friend) {
                     let newFriend =  document.createElement('div');
                     console.log(friend);
                 })
