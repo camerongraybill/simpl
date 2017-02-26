@@ -16,13 +16,13 @@
 .il {
     display: inline-block;
 }
-#name {
+.name {
     color: #3B5998;
     font-size: 17px;
     vertical-align: bottom;
     padding-left:1em
 }
-#time {
+.time {
     color:     black;
     font-size: 15px;
     vertical-align: bottom;
