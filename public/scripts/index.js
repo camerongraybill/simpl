@@ -221,7 +221,6 @@
                 const imageDiv = $(document.createElement("div")).addClass("il").prop("vertical-align", "top");
                 imageDiv.append($(document.createElement("img")).prop("src", post.image).prop("width", "84px").prop("height", "84px"));
                 innerDiv.append(imageDiv);
-                postDiv.append(imageDiv);
             }
             const userDiv = $(document.createElement("div")).addClass("il").prop("vertical-align", "bottom");
             const nameDiv = $(document.createElement("p")).addClass("name");
@@ -230,13 +229,13 @@
                 nameDiv.append(user.name);
             });
             userDiv.append($(document.createElement("div")).addClass("time").append(post.timestamp));
-            postDiv.append(userDiv);
-            postDiv.append($(document.createElement("br")));
-            postDiv.append($(document.createElement("div")).append($(document.createElement("h3")).append(post.message)));
+            innerDiv.append(userDiv);
+            innerDiv.append($(document.createElement("br")));
+            innerDiv.append($(document.createElement("div")).append($(document.createElement("h3")).append(post.message)));
             const buttonsDiv = $(document.createElement("div"));
             buttonsDiv.append($(document.createElement("button")).prop("type", "button").addClass("btn btn-default").append("Like"));
             buttonsDiv.append($(document.createElement("button")).prop("type", "button").addClass("btn btn-default").append("Comment"));
-            postDiv.append(buttonsDiv);
+            innerDiv.append(buttonsDiv);
             $("#newsfeedPosts").append(postDiv);
         });
     }
