@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6976898a-6178-4ff3-a369-15ff987df4f0" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/simpl.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
     </list>
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,7 +22,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="547">
@@ -31,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+            <state relative-caret-position="136">
+              <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -151,7 +154,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1488096680359</updated>
-      <workItem from="1488096687035" duration="694000" />
+      <workItem from="1488096687035" duration="769000" />
     </task>
     <task id="LOCAL-00001" summary="Revert &quot;Please work this time!&quot;&#10;&#10;This reverts commit 098c0c030756919a12582103f1d6dc803c2b695b.&#10;&#10;# Conflicts:&#10;#&#9;public/scripts/index.js&#10;">
       <created>1488097154789</created>
@@ -167,11 +170,18 @@
       <option name="project" value="LOCAL" />
       <updated>1488097368237</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Revert &quot;Please work this time!&quot;&#10;&#10;This reverts commit 098c0c030756919a12582103f1d6dc803c2b695b.&#10;&#10;# Conflicts:&#10;#&#9;public/scripts/index.js&#10;">
+      <created>1488097387676</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1488097387676</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="717000" />
+    <option name="totallyTimeSpent" value="792000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
@@ -311,14 +321,6 @@
     <entry file="file://$PROJECT_DIR$/routes/index.js" />
     <entry file="file://$PROJECT_DIR$/app.js" />
     <entry file="file://$PROJECT_DIR$/public/index.html" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="547">
@@ -326,6 +328,14 @@
           <folding>
             <element signature="e#0#52#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
