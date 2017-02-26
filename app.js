@@ -66,6 +66,7 @@ const session = require("express-session")({
     saveUninitialized: false
 });
 
+app.use(passport.initialize());
 app.use(session);
 app.use(logger("dev"));
 app.use(bodyParser.json());
