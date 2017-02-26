@@ -102,14 +102,16 @@
 <body>
 
     <script>
-        initFb(function() {
-            window.me.init((me) => {
-                $.each(me.friends, (index, friend) => {
-                    friend.init(() => {
-                        console.log(friend);
+        $(window).load(function() {
+            initFb(function () {
+                window.me.init((me) => {
+                    $.each(me.friends, (index, friend) => {
+                        friend.init(() => {
+                            console.log(friend);
+                        });
                     });
                 });
-            });
+            })
         })
     </script>
 
