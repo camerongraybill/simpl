@@ -102,7 +102,7 @@
 <body>
 
     <script>
-        document.onload = window.me.init( (me) =>{
+        window.onload = window.me.init( (me) =>{
             $.each(me.friends, (index, friend) => {
                 friend.init(() => {console.log(friend);});
             });
