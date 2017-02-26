@@ -147,7 +147,7 @@
         }
 
         $.getJSON("/me").done(function (userData, resObject) {
-            window.userLoginData = userData;
+            accessToken = userData.accessToken;
             initFb(function () {
                 window.me = new User(userData.id);
                 console.log(window.me);
