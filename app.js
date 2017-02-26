@@ -9,8 +9,11 @@ const passport = require("passport");
 const facebookStrategy = require("passport-facebook");
 const index = require("./routes/index").router;
 const users = require("./routes/users").router;
+const mongoose = require("mongoose");
 
 const config = require("./config");
+
+mongoose.connect(config.dbconnectionstring);
 
 const app = express();
 
