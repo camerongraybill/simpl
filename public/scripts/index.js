@@ -12,15 +12,13 @@
             FB.api("/" + this.id,
                 {
                     access_token: accessToken,
-                    fields: "first_name,last_name,name,cover,picture"
+                    fields: "first_name,last_name,name"
                 },
                 (response) => {
                     if (response && !response.error) {
                         this.first_name = response.first_name;
                         this.last_name = response.last_name;
                         this.name = response.name;
-                        this.cover = response.cover.source;
-                        this.picture = response.picture.data.url;
                         this.feed = new Feed(this.id);
                     } else {
                         throw new Error("Error loading User " + this.id + ": " + JSON.stringify(response));
