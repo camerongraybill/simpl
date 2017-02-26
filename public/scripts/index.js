@@ -55,7 +55,7 @@
                         this.first_name = response.first_name;
                         this.last_name = response.last_name;
                         this.name = response.name;
-                        this.cover = response.cover.source;
+                        this.cover = response.conver ? response.cover.source : undefined;
                         this.picture = response.picture.data.url;
                         this.feed = new Feed(this.id);
                         this.friends = [];
@@ -65,9 +65,9 @@
                             });
                         }
                         typeof callback !== "undefined" ? callback(this) : null;
-                    } else {
+                    } /*else {
                         throw new Error("Error loading User " + this.id + ": " + JSON.stringify(response));
-                    }
+                    }*/
                 });
             return this;
         }
