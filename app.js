@@ -78,7 +78,6 @@ app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
 
 
 app.get("/auth/facebook", passport.authenticate("facebook"));
@@ -94,6 +93,7 @@ app.all("*", (req, res, next) => {
         next();
     }
 });
+app.use(express.static(path.join(__dirname, "public")));
 app.get("/me", (req, res) => {
     if (req.user) {
         res.json(req.user);
