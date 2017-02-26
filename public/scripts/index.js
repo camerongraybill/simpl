@@ -127,7 +127,7 @@
             FB.api("/" + this.id,
                 {
                     access_token: accessToken,
-                    fields: "comments,likes,message,attachments,story,created_time"
+                    fields: "comments,likes,message,attachments,story,created_time,from"
                 },
                 (response) => {
                 console.log(response);
@@ -147,6 +147,9 @@
                         }
                         if (response.story) {
                             this.story = response.story;
+                        }
+                        if (response.from) {
+                            this.from = new User(response.from.id);
                         }
                         this.timestamp = response.created_time;
                         this.message = response.message;
@@ -208,6 +211,36 @@
             }
             return this;
         }
+    }
+
+    const postsDiv = ("#newsfeedPosts");
+    function showPost(post) {
+        post.init((post) => {
+            const postDiv = $(document.createElement("div")).addClass("row center");
+            const innerDiv = $(document.createElement("div")).addClass("col-sm-offset-3 col-sm-6 well").prop("align", "left");
+            postDiv.append(innerDiv);
+            if (post.image) {
+                const imageDiv = $(document.createElement("div")).addClass("il").prop("vertical-align", "top");
+                imageDiv.append($(document.createElement("img")).prop("src", post.image).prop("width", "84px").prop("height", "84px"));
+                innerDiv.append(imageDiv);
+            }
+            postDiv.append(imageDiv);
+            const userDiv = $(document.createElement("div")).addClass("il").prop("vertical-align", "bottom");
+            const nameDiv = $(document.createElement("p")).addClass("name");
+            userDiv.append(nameDiv);
+            post.from.init((user) => {
+                nameDiv.append(user.name);
+            });
+            userDiv.append($(document.createElement("div")).addClass("time").append(post.timestamp));
+            postDiv.append(userDiv);
+            postDiv.append($(document.createElement("br")));
+            postDiv.append($(document.createElement("div")).append($(document.createElement("h3")).append(post.message)));
+            const buttonsDiv = $(document.createElement("div"));
+            buttonsDiv.append($(document.createElement("button").prop("type", "button").addClass("btn btn-default")).append("Like"));
+            buttonsDiv.append($(document.createElement("button").prop("type", "button").addClass("btn btn-default")).append("Comment"));
+            postDiv.append(buttonsDiv);
+            postsDiv.append(postDiv);
+        });
     }
     $(document).ready(function () {
         function initFb(callback) {
