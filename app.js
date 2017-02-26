@@ -80,7 +80,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 
-app.get("/auth/facebook", passport.authenticate("facebook", {scope: ['user_posts', 'user_friends','user_about_me','public_profile']}));
+app.get("/auth/facebook", passport.authenticate("facebook", {scope: ['user_posts']}));
 
 app.get("/auth/facebook/callback", passport.authenticate('facebook', {failureRedirect: '/login'}), (req, res) => {
     res.redirect("/");
