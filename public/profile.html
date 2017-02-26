@@ -1,44 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style>
-	/* navbar */
-	.navbar a.navbar-brand {
-	    color: white;
-	}
-	.navbar-inverse {
-	    background-color: #3B5998;
-	    border-color: #E7E7E7;
-	}
-	.btn-msg {
-		background-color: #0084ff;
-		color: white;
-	}
-	.row.center {
-		text-align: center;
-	}
+.jumbotron {
+  background-image: url("./images/main-street-sunset.jpg");
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+/* navbar */
+.navbar a.navbar-brand {
+  color: white;
+}
+.navbar-inverse {
+  background-color: #3B5998;
+  border-color: #E7E7E7;
+}
+.btn-msg {
+  background-color: #0084ff;
+  color: white;
+}
+.row.center {
+  text-align: center;
+}
 </style>
-
 </head>
-<body>
 
-	<nav class="navbar navbar-inverse">
-		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Simpl.</a>
-			</div>
+<nav class="navbar navbar-inverse">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">Simpl.</a>
 		</div>
-	</nav>
+	</div>
+</nav>
 
-
-
+<body>
+<!-- cover photo and name -->
+<div class="container">
+  <div class="jumbotron" style="height: 400px;">
+    <div style="position: relative; height: 150px; width: 150px; left: -25px; top: 175px;">
+      <img src="./images/COM_6050.jpg" width="100%" height="100%" style="border: 5px solid white;">
+  </div>
+  <div style="position: relative; height: 15px; width: 200px; left: 150px; bottom: -115px;">
+    <h style="color: white; font-size: 24px;"> FIRSTNAME </h>
+  </div>
+  <div style="position: relative; height: 15px; width: 200px; left: 150px; bottom: -130px;">
+    <h style="color: white; font-size: 24px;"> LASTNAME </h>
+  </div>
 </div>
 
+
+  <br>
+  <ul class="nav nav-tabs">
+  <li class="active"><a href="#">Timeline</a></li>
+  <li><a href="#">About</a></li>
+  <li><a href="#">Friends</a></li>
+  <li><a href="#">Photos</a></li>
+  </br>
+  </ul>
+</div>
 </body>
 </html>
