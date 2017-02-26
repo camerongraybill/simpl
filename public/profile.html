@@ -87,9 +87,18 @@
 //        }, 1000);
         setTimeout(function() {
             window.me.init(function() {
-                lastName.innerHTML = "\<h style=\"color\: white\; font-size\: 24px\;\">" + me.last_name + "\<\/h>"
-            });
-        }, 1000);
+                t3.innerHTML =  $.each(me.friends, function(index, friend) {
+                    let newFriend =  document.createElement('div');
+                    console.log(friend);
+                })
+            });}, 1000);
+//                <div class="img">
+//                    <a target="_blank" href="http://placekitten.com/g/300/300">
+//                    <img src="http://placekitten.com/g/300/300" alt="Fjords" width="300" height="300">
+//                    </a>
+//                    <div class="desc">(Friend name)</div>
+//                </div>
+
     </script>
 
     <nav class="navbar navbar-inverse">
@@ -120,7 +129,7 @@
       <ul class="nav nav-tabs">
         <li class="active"><a href="#1" data-toggle="tab">Timeline</a></li>
         <li><a href="#2" data-toggle="tab">About</a></li>
-        <li><a href="#3" data-toggle="tab">Friends</a></li>
+        <li><a href="#t3" data-toggle="tab">Friends</a></li>
         <li><a href="#4" data-toggle="tab">Photos</a></li>
       </ul>
 
@@ -146,7 +155,7 @@
         <!--
           "Friends" tab bar
         -->
-        <div class="tab-pane" id="3">
+        <div class="tab-pane" id="t3">
 
           <div class="img">
             <a target="_blank" href="http://placekitten.com/g/300/300">
