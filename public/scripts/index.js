@@ -212,7 +212,6 @@
         }
     }
 
-    const postsDiv = $("#newsfeedPosts");
     function showPost(post) {
         post.init((post) => {
             const postDiv = $(document.createElement("div")).addClass("row center");
@@ -238,8 +237,7 @@
             buttonsDiv.append($(document.createElement("button")).prop("type", "button").addClass("btn btn-default")).append("Like");
             buttonsDiv.append($(document.createElement("button")).prop("type", "button").addClass("btn btn-default")).append("Comment");
             postDiv.append(buttonsDiv);
-            postsDiv.append(postDiv);
-            console.log(postDiv);
+            $("#newsfeedPosts").append(postDiv);
         });
     }
     $(document).ready(function () {
