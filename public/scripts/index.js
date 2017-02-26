@@ -21,7 +21,7 @@
                         this.name = response.name;
                         this.feed = new Feed(this.id);
                     } else {
-                        throw new Error("Error loading User " + this.id);
+                        throw new Error("Error loading User " + this.id + ": " + JSON.stringify(response));
                     }
                 });
             return this;
@@ -43,7 +43,7 @@
                         this.message = response.message;
                         this.from = new User(response.from.id);
                     } else {
-                        throw new Error("Error loading comment " + this.id);
+                        throw new Error("Error loading comment " + this.id + ": " + JSON.stringify(response));
                     }
                 });
             return this;
@@ -73,7 +73,7 @@
                         });
                         this.message = response.message;
                     } else {
-                        throw new Error("Error loading post " + this.id);
+                        throw new Error("Error loading post " + this.id + ": " + JSON.stringify(response));
                     }
                 });
             return this;
@@ -98,7 +98,7 @@
                         });
                         this.nextPostsCall = response.paging.next;
                     } else {
-                        throw new Error("Invalid User ID " + this.userId + " passed to Feed Init");
+                        throw new Error("Invalid User ID " + this.userId + " passed to Feed Init" + ": " + JSON.stringify(response));
                     }
                 });
             return this;
@@ -113,7 +113,7 @@
                         });
                         this.nextPostsCall = response.paging.next;
                     } else {
-                        throw new Error("Error while finding more Posts for user " + this.userId);
+                        throw new Error("Error while finding more Posts for user " + this.userId + ": " + JSON.stringify(response));
                     }
                 });
             } else {
