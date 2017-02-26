@@ -33,14 +33,12 @@
     setTimeout(function () {
         window.me.init(function () {
 //                let newFriend = document.createElement("div");
-            let allDivs = "";
+            const t3 = $("#t3");
             $.each(me.friends, function (index, friend) {
                 let friendObj = friend.init();
                 let newFriend = $(document.createElement("div")).data(friendObj);
-                allDivs.append(newFriend);
-                console.log(friend);
+                t3.append(newFriend);
             });
-            t3.innerHTML = allDivs;
         });
     }, 1000);
     //                <div class="img">
