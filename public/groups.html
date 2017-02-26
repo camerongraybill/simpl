@@ -101,15 +101,6 @@
 </head>
 <body>
 
-    <script>
-        window.me.init(test.innerHTML(me.first_name));
-//        window.me.init( (me) =>{
-//            $.each(me.friends, (index, friend) => {
-//                friend.init(() => {console.log(friend);});
-//            });
-//        });
-    </script>
-
     <div id="test">
         <p> nothing </p>
     </div>
@@ -136,6 +127,14 @@
             <h3>Just display group names for now</h3>
         </div>
     </div>
+
+    <script>
+        window.me.init( (me) =>{
+            $.each(me.friends, (index, friend) => {
+                friend.init(() => {console.log(friend);});
+            });
+        });
+    </script>
 
 </body>
 </html>
