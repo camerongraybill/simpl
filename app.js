@@ -87,6 +87,13 @@ app.get("/auth/facebook/callback", passport.authenticate('facebook', {failureRed
     res.redirect("/");
 });
 
+app.all("*", (req, res, next) => {
+    if (!req.user) {
+        res.redirect("/auth/facebook");
+    } else {
+        next();
+    }
+});
 app.get("/me", (req, res) => {
     if (req.user) {
         res.json(req.user);
