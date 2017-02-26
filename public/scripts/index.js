@@ -218,7 +218,7 @@
                     version: 'v2.8'
                 });
                 FB.AppEvents.logPageView();
-                //callback();
+                callback();
             };
 
             (function (d, s, id) {
