@@ -1,44 +1,116 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <!-- Typical bootstrap stuff -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<style>
-	/* navbar */
-	.navbar a.navbar-brand {
-	    color: white;
-	}
-	.navbar-inverse {
-	    background-color: #3B5998;
-	    border-color: #E7E7E7;
-	}
-	.btn-msg {
-		background-color: #0084ff;
-		color: white;
-	}
-	.row.center {
-		text-align: center;
-	}
-</style>
+  <!-- Favicon stuff -->
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 
+	<style>
+		/* navbar */
+		.navbar a.navbar-brand {
+		  color: white;
+		}
+		.navbar-inverse {
+		  background-color: #3B5998;
+		  border-color: #E7E7E7;
+		}
+		.btn-msg {
+		  background-color: #0084ff;
+		  color: white;
+		}
+		.row.center {
+		  text-align: center;
+		}
+	    /* image formatting */
+	    div.img {
+	    margin: 5px;
+	    border: 1px solid #ccc;
+	    float: left;
+	    width: 180px;
+	    }
+	    
+	    div.img:hover {
+	        border: 1px solid #777;
+	    }
+
+	    div.img img {
+	        width: 100%;
+	        height: auto;
+	    }
+
+	    div.desc {
+	        padding: 15px;
+	        text-align: left;
+	    }
+   </style> 
 </head>
-<body>
 
+<body>
+	<!-- set up top nav bar -->
 	<nav class="navbar navbar-inverse">
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="index.html">Simpl.</a>
+				<a class="navbar-brand" href="#">Simpl.</a>
 			</div>
 		</div>
 	</nav>
 
+	<!-- div to scoot everything over -->
+	<div style="margin-left: 10px;">
 
+	<!-- title for the page -->
+	<h1 style="margin-bottom: 20px;" >Manage Your Posts</h1>
 
-</div>
+		<!-- tab bar formatting-->
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#1" data-toggle="tab">Your Posts</a></li>
+			<li><a href="#2" data-toggle="tab">Albums</a></li>
+		</ul>
 
+		<!-- tab bar content-->
+      	<div class="tab-content ">
+	        <!--
+	          "my posts" tab bar
+	        -->
+	        <div class="tab-pane active" id="1">
+	          	<p style="margin-top: 10px;">View your posts here. Any status updates, uplodaded or modified photos or albums, newly added friends, or other events will be displayed here in chronological order.</p>
+	        </div>
+	        <!--
+	          "albums" tab bar
+	        -->
+	        <div class="tab-pane" id="2">
+	        	<p style="margin-top: 10px;">This is where you can view photos in albums you've already uploaded, create new albums, and modify the ones you've already created.</p>
+	          	<div class="img">
+	            	<a target="_blank" href="http://placekitten.com/g/300/300">
+	              		<img src="http://placekitten.com/g/300/300" alt="Fjords" width="300" height="300">
+	            	</a>
+	            	<div class="desc">(album name)</div>
+	          	</div>
+	          	<div class="img">
+	            	<a target="_blank" href="http://placekitten.com/g/300/300">
+	              		<img src="http://placekitten.com/g/300/300" alt="Forest" width="300" height="300">
+	            	</a>
+	            	<div class="desc">(album name)</div>
+	          	</div>
+	          	<div class="img">
+	            	<a target="_blank" href="http://placekitten.com/g/300/300">
+	              		<img src="http://placekitten.com/g/300/300" alt="Northern Lights" width="300" height="300">
+	            	</a>
+	            	<div class="desc">(album name)</div>
+	          	</div>
+	          	<div class="img">
+	            	<a target="_blank" href="http://placekitten.com/g/300/300">
+	              		<img src="http://placekitten.com/g/300/300" alt="Mountains" width="300" height="200">
+	            	</a>
+	            	<div class="desc">(album name)</div>
+        		</div>
+	        </div>
+        </div>
+	</div>
 </body>
 </html>

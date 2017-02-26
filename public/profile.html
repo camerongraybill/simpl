@@ -2,75 +2,173 @@
 <html>
 <head>
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Typical bootstrap stuff -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- Favicon stuff -->
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* navbar */
+    .navbar a.navbar-brand {
+      color: white;
+    }
+    .navbar-inverse {
+      background-color: #3B5998;
+      border-color: #E7E7E7;
+    }
+    .btn-msg {
+      background-color: #0084ff;
+      color: white;
+    }
+    .row.center {
+      text-align: center;
+    }
+    /* profile picture, name, and cover photo */
+    .jumbotron {
+      background-image: url("http://placekitten.com/g/800/800");
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 0px;
+      margin-top: 0px;
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+    /* image formatting */
+    div.img {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 180px;
+    }
+    
+    div.img:hover {
+        border: 1px solid #777;
+    }
 
-<style>
-.jumbotron {
-  background-image: url("./images/main-street-sunset.jpg");
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
-}
-/* navbar */
-.navbar a.navbar-brand {
-  color: white;
-}
-.navbar-inverse {
-  background-color: #3B5998;
-  border-color: #E7E7E7;
-}
-.btn-msg {
-  background-color: #0084ff;
-  color: white;
-}
-.row.center {
-  text-align: center;
-}
-</style>
+    div.img img {
+        width: 100%;
+        height: auto;
+    }
+
+    div.desc {
+        padding: 15px;
+        text-align: left;
+    }
+  </style> 
 </head>
 
 <nav class="navbar navbar-inverse">
-	<div class="container">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="index.html">Simpl.</a>
-		</div>
-	</div>
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Simpl.</a>
+    </div>
+  </div>
 </nav>
 
-<body>
-<!-- cover photo and name -->
-<div class="container">
-  <div class="jumbotron" style="height: 400px;">
-    <div style="position: relative; height: 150px; width: 150px; left: -25px; top: 175px;">
-      <img src="./images/COM_6050.jpg" width="100%" height="100%" style="border: 5px solid white;">
-  </div>
-  <div style="position: relative; height: 15px; width: 200px; left: 150px; bottom: -115px;">
-    <h style="color: white; font-size: 24px;"> FIRSTNAME </h>
-  </div>
-  <div style="position: relative; height: 15px; width: 200px; left: 150px; bottom: -130px;">
-    <h style="color: white; font-size: 24px;"> LASTNAME </h>
-  </div>
-</div>
+  <body>
+    <!-- cover photo and name -->
+    <div class="container">
+      <div class="jumbotron" style="height: 400px;">
+        <div style="position: relative; height: 150px; width: 150px; left: -25px; top: 175px;">
+          <img src="http://placekitten.com/g/300/300" width="100%" height="100%" style="border: 5px solid white;">
+        </div>
+        <div style="position: relative; height: 15px; width: 200px; left: 150px; bottom: -115px;">
+          <h style="color: white; font-size: 24px;"> (First) </h>
+        </div>
+        <div style="position: relative; height: 15px; width: 200px; left: 150px; bottom: -130px;">
+          <h style="color: white; font-size: 24px;"> (Last) </h>
+        </div>
+      </div>
+    
+      </br>
 
+      <!-- tab bar formatting-->
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#1" data-toggle="tab">Timeline</a></li>
+        <li><a href="#2" data-toggle="tab">About</a></li>
+        <li><a href="#3" data-toggle="tab">Friends</a></li>
+        <li><a href="#4" data-toggle="tab">Photos</a></li>
+      </ul>
 
-  <br>
-  <ul class="nav nav-tabs">
-  <li class="active"><a href="#">Timeline</a></li>
-  <li><a href="#">About</a></li>
-  <li><a href="#">Friends</a></li>
-  <li><a href="#">Photos</a></li>
-  </br>
-  </ul>
-</div>
-</body>
+      <!-- tab bar content-->
+      <div class="tab-content ">
+        <!--
+          "Timeline" tab bar
+        -->
+        <div class="tab-pane active" id="1">
+          <h3> (insert posts) </h3>
+        </div>
+        <!--
+          "About" tab bar
+        -->
+        <div class="tab-pane" id="2">
+          <h3> Birthday: </h3>
+          <p> (birthday) </p>
+          <h3> Residence: </h3>
+          <p> (residence) </p>
+          <h3> Education: </h3>
+          <p> (education) </p>
+        </div>
+        <!--
+          "Friends" tab bar
+        -->
+        <div class="tab-pane" id="3">
+          <div class="img">
+            <a target="_blank" href="http://placekitten.com/g/300/300">
+              <img src="http://placekitten.com/g/300/300" alt="Fjords" width="300" height="300">
+            </a>
+            <div class="desc">(Friend name)</div>
+          </div>
+          <div class="img">
+            <a target="_blank" href="http://placekitten.com/g/300/300">
+              <img src="http://placekitten.com/g/300/300" alt="Forest" width="300" height="300">
+            </a>
+            <div class="desc">(Friend name)</div>
+          </div>
+          <div class="img">
+            <a target="_blank" href="http://placekitten.com/g/300/300">
+              <img src="http://placekitten.com/g/300/300" alt="Northern Lights" width="300" height="300">
+            </a>
+            <div class="desc">(Friend name)</div>
+          </div>
+          <div class="img">
+            <a target="_blank" href="http://placekitten.com/g/300/300">
+              <img src="http://placekitten.com/g/300/300" alt="Mountains" width="300" height="200">
+            </a>
+            <div class="desc">(Friend name)</div>
+          </div>
+        </div>
+        <!--
+          "Photos" tab bar
+        -->
+        <div class="tab-pane" id="4">
+          <div class="img">
+            <a target="_blank" href="http://placekitten.com/g/300/300">
+              <img src="http://placekitten.com/g/300/300" alt="Fjords" width="300" height="300">
+            </a>
+          </div>
+          <div class="img">
+            <a target="_blank" href="http://placekitten.com/g/300/300">
+              <img src="http://placekitten.com/g/300/300" alt="Forest" width="300" height="300">
+            </a>
+          </div>
+          <div class="img">
+            <a target="_blank" href="http://placekitten.com/g/300/300">
+              <img src="http://placekitten.com/g/300/300" alt="Northern Lights" width="300" height="300">
+            </a>
+          </div>
+          <div class="img">
+            <a target="_blank" href="http://placekitten.com/g/300/300">
+              <img src="http://placekitten.com/g/300/300" alt="Mountains" width="300" height="200">
+            </a>
+          </div>
+        </div>         
+      </div>
+      <!-- end of tab bar content -->
+    
+    </div>
+  </body>
 </html>
