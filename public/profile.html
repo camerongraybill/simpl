@@ -28,7 +28,8 @@
         }, 1000);
         setTimeout(function() {
             window.me.init(function() {
-                profPic.innerHTML = "\<img src=" + me.picture + "id='profilePic'\>";
+                profPic.innerHTML = "\<img src=" + me.picture + "\>";
+                $('.profPic' > img).addClass('profilePic');
             });
         }, 1000);
 //        setTimeout(function() {
