@@ -130,7 +130,6 @@
                     fields: "comments,likes,message,attachments,story,created_time,from"
                 },
                 (response) => {
-                console.log(response);
                     if (response && !response.error) {
                         if (response.comments) {
                             $.each(response.comments.data, (ignore, comment) => {
@@ -273,6 +272,7 @@
                 window.me.init((me) => {
                     me.feed.init((feed) => {
                         $.each(feed.posts, (index, post) => {
+                            console.log(post);
                             showPost(post);
                         });
                     });
