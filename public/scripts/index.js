@@ -14,12 +14,32 @@
  * Init has one parameter - the function to be called after it is done (Anything that depends on those fields being
  * initialized should be put in the callback function rather than in line after the call to init.
  *
+ * I have assigned the "window.me" variable to the current user so you can use that to access any of it's information or do anything with it.
+ * You should be able to include this file in any of the .html files the same way it is included in index.html and it should work.
  *
+ * Example usage:
+ *  Print a User's Friends to the console:
+ *      Window.me.init((me) => {
+ *           $.each(me.friends, (index, friend) => {
+ *                  friend.init(() => {console.log(friend);});
+ *           });
+ *       });
  */
 (function () {
     "use strict";
     let accessToken;
     let initializedObjects = {};
+    /**
+     * User Properties:
+     * id: The userID for the API
+     * first_name: First Name
+     * last_name: Last Name
+     * name: first name and last name
+     * cover: Link to cover photo
+     * picture: Link to profile picture
+     * feed: Feed object for the user's facebook feed (need to call init() before using)
+     * friends: array of User objects, each one needs to call init() to start using it
+     */
     class User {
         constructor (userId) { //<---- CONSTRUCTOR
             this.id = userId;
@@ -52,6 +72,13 @@
             return this;
         }
     }
+    /**
+     * Comment Class Attributes:
+     * id: the comment ID for the API
+     * message: the text of the comment
+     * from: User the message came from, needs to be initialized before using
+     * timestamp: The time the comment was posted
+     */
     class Comment {
         constructor (commentId) {
             this.id = commentId;
@@ -61,12 +88,14 @@
             this.message = "";
             FB.api("/" + this.id,
                 {
-                    access_token: accessToken
+                    access_token: accessToken,
+                    fields: "message,from,created_time"
                 },
                 (response) => {
                     if (response && !response.error) {
                         this.message = response.message;
                         this.from = new User(response.from.id);
+                        this.timestamp = response.created_time;
                         callback(this);
                     } else {
                         throw new Error("Error loading comment " + this.id + ": " + JSON.stringify(response));
@@ -75,6 +104,16 @@
             return this;
         }
     }
+    /**
+     * Post class Attributes:
+     * id: the post ID for the API
+     * comments: Array of comment objects, each one needs to be initialized to use
+     * likes: Array of users who like the post, each one needs to be initialzed to use
+     * message: The message of the Post
+     * story: The "story" (automated wall posts) text
+     * image: Link to attached image of post
+     * timestamp: The time the post was created
+     */
     class Post {
         constructor (postId) {
             this.id = postId;
@@ -119,6 +158,14 @@
             return this;
         }
     }
+    /**
+     * Feed Class Properties:
+     * userId: The ID of the User who this feed belongs to
+     * nextPostsCall: the URL to call to get more posts
+     * posts: An array of posts that each need to be initialized before using
+     * Methods:
+     * morePosts: Gets more posts and adds them to the posts array
+     */
     class Feed {
         constructor (userId) {
             this.userId = userId;
@@ -190,7 +237,6 @@
             accessToken = userData.accessToken;
             initFb(function () {
                 window.me = new User(userData.id);
-                console.log(window.me);
                 /*FB.api(
                     "/me/feed",
                     {
