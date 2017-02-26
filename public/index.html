@@ -38,6 +38,15 @@
 	            version    : 'v2.8'
 	        });
 	        FB.AppEvents.logPageView();
+
+    		FB.api(
+		    "/me/feed",
+		    function (response) {
+		      if (response && !response.error) {
+		        console.log(response)
+		      }
+		    }
+		);
 	    };
 
 	    (function(d, s, id){
@@ -48,14 +57,6 @@
 	        fjs.parentNode.insertBefore(js, fjs);
 	    }(document, 'script', 'facebook-jssdk'));
 
-		FB.api(
-		    "/me/feed",
-		    function (response) {
-		      if (response && !response.error) {
-		        console.log(response)
-		      }
-		    }
-		);
 	</script>
 
 <nav class="navbar navbar-inverse">
