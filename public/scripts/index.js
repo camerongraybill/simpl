@@ -61,7 +61,7 @@
             FB.api("/" + this.id,
                 {
                     access_token: accessToken,
-                    fields: "comments,likes,message"
+                    fields: "comments,likes,message,attachments"
                 },
                 (response) => {
                 console.log(response);
@@ -75,6 +75,9 @@
                             $.each(response.likes.data, (ignore, like) => {
                                 this.likes.push(new User(like.id));
                             });
+                        }
+                        if (response.attachments && response.attachments.data[0].media.image.src) {
+                            this.image = response.attachments.data[0].media.image.src;
                         }
                         this.message = response.message;
                     } else {
