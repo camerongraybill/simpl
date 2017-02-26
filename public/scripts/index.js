@@ -276,6 +276,9 @@
                             showPost(post);
                         });
                     });
+                    $("#firstName").html("<h1 style=\"color\: white\; font-size\: 24px\;\">" + me.first_name + "</h1>");
+                    $("#lastName").html("<h1 style=\"color\: white\; font-size\: 24px\;\">" + me.last_name + "</h1>");
+                    $("profPic").html("<img src=" + me.picture + "\>");
                 });
                 /*FB.api(
                     "/me/feed",
