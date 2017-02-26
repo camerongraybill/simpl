@@ -4,7 +4,6 @@
 (function () {
     "use strict";
     let accessToken;
-    let initializedObjects = {};
     class User {
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -29,7 +28,7 @@
 >>>>>>> parent of 098c0c0... Please work this time!
                 {
                     access_token: accessToken,
-                    fields: "first_name,last_name,name,cover,picture,friends"
+                    fields: "first_name,last_name,name,cover,picture"
                 },
                 (response) => {
 <<<<<<< HEAD
@@ -58,12 +57,6 @@
                         this.cover = response.cover.source;
                         this.picture = response.picture.data.url;
                         this.feed = new Feed(this.id);
-                        this.friends = [];
-                        if (response.friends) {
-                            $.each(response.friends.data, (ignore, friend) => {
-                                this.friends.push(new User(friend.id));
-                            });
-                        }
                     } else {
                         throw new Error("Error loading User " + this.id + ": " + JSON.stringify(response));
                     }
