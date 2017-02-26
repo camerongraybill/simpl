@@ -1,25 +1,12 @@
 /**
  * Created by jenniferbondarchuk on 2/25/17.
  */
-
-/**
- * Cam's Intro to JS Classes and my structure
- *
- * Javascript classes are pretty simple - they have a constructor (marked below) which is called by executing "new <type>()"
- * So to make a user it would be "let newUser = new User(userid);"
- *
- * All of the classes I wrote have the "init" method which populates all of the properties of the object.
- * Rather than initializing all of them you must call the "init" method to populate the fields
- *
- *
- *
- *
- */
 (function () {
     "use strict";
     let accessToken;
     let initializedObjects = {};
     class User {
+<<<<<<< HEAD
 <<<<<<< HEAD
         constructor (userId) {
             this.id = userId;
@@ -33,6 +20,13 @@
         async init () {
             await FB.api("/" + this.id,
 >>>>>>> 098c0c030756919a12582103f1d6dc803c2b695b
+=======
+        constructor (userId) {
+            this.id = userId;
+        }
+        init () {
+            FB.api("/" + this.id,
+>>>>>>> parent of 098c0c0... Please work this time!
                 {
                     access_token: accessToken,
                     fields: "first_name,last_name,name,cover,picture,friends"
@@ -124,6 +118,7 @@
                 {
                     access_token: accessToken,
 <<<<<<< HEAD
+<<<<<<< HEAD
                     fields: "comments,likes,message,attachments,story"
                 },
                 (response) => {
@@ -152,6 +147,9 @@
         });
 =======
                     fields: "comments,likes,message,attachments,story,created_time"
+=======
+                    fields: "comments,likes,message,attachments,story"
+>>>>>>> parent of 098c0c0... Please work this time!
                 },
                 (response) => {
                 console.log(response);
@@ -172,7 +170,6 @@
                         if (response.story) {
                             this.story = response.story;
                         }
-                        this.timestamp = response.created_time;
                         this.message = response.message;
                     } else {
                         throw new Error("Error loading post " + this.id + ": " + JSON.stringify(response));
