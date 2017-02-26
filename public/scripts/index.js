@@ -23,7 +23,7 @@
         constructor (userId) { //<---- CONSTRUCTOR
             this.id = userId;
         }
-        async init () {
+        init () {
             await new Promise((resolve) => {
                 FB.api("/" + this.id,
                     {
