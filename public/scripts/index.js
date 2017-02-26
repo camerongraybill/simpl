@@ -40,6 +40,7 @@
                             console.log(response)
                         }
                         $.each(response.data, (item) => {
+                            console.log(item);
                             FB.api("/" + item.id, {access_token: userLoginData.accessToken}, (response) => {
                                 console.log(response);
                             });
