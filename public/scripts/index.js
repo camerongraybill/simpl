@@ -234,8 +234,8 @@
             postDiv.append($(document.createElement("br")));
             postDiv.append($(document.createElement("div")).append($(document.createElement("h3")).append(post.message)));
             const buttonsDiv = $(document.createElement("div"));
-            buttonsDiv.append($(document.createElement("button")).prop("type", "button").addClass("btn btn-default")).append("Like");
-            buttonsDiv.append($(document.createElement("button")).prop("type", "button").addClass("btn btn-default")).append("Comment");
+            buttonsDiv.append($(document.createElement("button")).prop("type", "button").addClass("btn btn-default").append("Like"));
+            buttonsDiv.append($(document.createElement("button")).prop("type", "button").addClass("btn btn-default").append("Comment"));
             postDiv.append(buttonsDiv);
             $("#newsfeedPosts").append(postDiv);
         });
