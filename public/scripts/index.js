@@ -62,7 +62,7 @@
             FB.api("/" + this.id,
                 {
                     access_token: accessToken,
-                    fields: "comments,likes,message,attachments"
+                    fields: "comments,likes,message,attachments,story"
                 },
                 (response) => {
                 console.log(response);
