@@ -65,8 +65,8 @@
     <script>
         setTimeout(function() { console.log(window.me); }, 1000);
         setTimeout(function() {
-            window.me.init(firstName.innerHTML = "\<h style=\"color\: white\; font-size\: 24px\;\">" + me.first_name + "\<\/h>");
-        }, 1000);
+            window.me.init( firstName.innerHTML = me.first_name; }, 1000);
+        })
         setTimeout(function () { console.log(me.first_name); }, 2000);
     </script>
 
