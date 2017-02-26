@@ -66,8 +66,8 @@
         setTimeout(function() { console.log(window.me); }, 1000);
         setTimeout(function() {
             window.me.init(firstName.innerHTML = "\<h style=\"color\: white\; font-size\: 24px\;\">" + me.first_name + "\<\/h>");
-        },
-            1000);
+        }, 1000);
+        setTimeout(function () { console.log(me.first_name); }, 2000);
     </script>
 
     <nav class="navbar navbar-inverse">
