@@ -223,8 +223,8 @@
                 const imageDiv = $(document.createElement("div")).addClass("il").prop("vertical-align", "top");
                 imageDiv.append($(document.createElement("img")).prop("src", post.image).prop("width", "84px").prop("height", "84px"));
                 innerDiv.append(imageDiv);
+                postDiv.append(imageDiv);
             }
-            postDiv.append(imageDiv);
             const userDiv = $(document.createElement("div")).addClass("il").prop("vertical-align", "bottom");
             const nameDiv = $(document.createElement("p")).addClass("name");
             userDiv.append(nameDiv);
