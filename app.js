@@ -26,11 +26,25 @@ app.set("view engine", "jade");
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 
+
+
+app.get("/auth/facebook", passport.authenticate("facebook"));
+
+app.get("/auth/facebook/callback", passport.authenticate('facebook', {failureRedirect: '/login'}), (req, res) => {
+    res.redirect("/");
+});
+
+const session = require("express-session")({
+    secret: "keyboard cat",
+    resave: true,
+    saveUninitialized: true
+});
+app.use(session);
 passport.use(new facebookStrategy({
-    clientID: config.facebookSettings.id,
-    clientSecret: config.facebookSettings.secret,
-    callbackURL: "http://simpl.eastus.cloudapp.azure.com/auth/facebook/callback"
-},
+        clientID: config.facebookSettings.id,
+        clientSecret: config.facebookSettings.secret,
+        callbackURL: "http://simpl.eastus.cloudapp.azure.com/auth/facebook/callback"
+    },
     (accessToken, refreshToken, profile, callback) => {
         const newGuy = new User();
         newGuy.fullName = profile.displayName;
@@ -54,21 +68,6 @@ passport.use(new facebookStrategy({
         });
 
     }));
-
-app.get("/auth/facebook", passport.authenticate("facebook"));
-
-app.get("/auth/facebook/callback", passport.authenticate('facebook', {failureRedirect: '/login'}), (req, res) => {
-    res.redirect("/");
-});
-
-const session = require("express-session")({
-    secret: "keyboard cat",
-    resave: true,
-    saveUninitialized: true
-});
-app.use(session);
-app.use(passport.initialize());
-app.use(passport.session());
 passport.serializeUser((user, done) => {
     done(null, user.id);
 });
@@ -78,6 +77,8 @@ passport.deserializeUser((id, done) => {
         done(err, user);
     });
 });
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
