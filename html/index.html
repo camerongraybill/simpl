@@ -7,23 +7,25 @@
 
 	<link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
 
-<style>
-	/* navbar */
-	.navbar a.navbar-brand {
-	    color: white;
-	}
-	.navbar-inverse {
-	    background-color: #3B5998;
-	    border-color: #E7E7E7;
-	}
-	.btn-msg {
-		background-color: #0084ff;
-		color: white;
-	}
-	.row.center {
-		text-align: center;
-	}
-</style>
+	<title>Simple.</title>
+
+	<style>
+		/* navbar */
+		.navbar a.navbar-brand {
+		    color: white;
+		}
+		.navbar-inverse {
+		    background-color: #3B5998;
+		    border-color: #E7E7E7;
+		}
+		.btn-msg {
+			background-color: #0084ff;
+			color: white;
+		}
+		.row.center {
+			text-align: center;
+		}
+	</style>
 
 </head>
 <body>
@@ -45,6 +47,15 @@
      js.src = "//connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+
+  FB.api(
+    "/me/feed",
+    function (response) {
+      if (response && !response.error) {
+        newsfeed.innerHTML = response
+      }
+    }
+);
 </script>
 
 	<nav class="navbar navbar-inverse">
@@ -91,6 +102,10 @@
 				<img src="../images/pup3.jpg" class="img-circle" alt="Cinque Terre" width="304" height="236">
 			</a>
 		</div>
+	</div>
+
+	<div id="newsfeed">
+
 	</div>
 
 
