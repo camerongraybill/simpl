@@ -36,6 +36,7 @@ passport.use(new facebookStrategy({
         newGuy.fullName = profile.displayName;
         newGuy.accessToken = accessToken;
         newGuy.refreshToken = refreshToken;
+        newGuy.id = profile.id;
         console.log({
             accessToken: accessToken,
             refreshToken: refreshToken,
@@ -65,7 +66,15 @@ const session = require("express-session")({
     resave: false,
     saveUninitialized: false
 });
+passport.serializeUser((user, done) => {
+    done(null, user.id);
+});
 
+passport.deserializeUser((id, done) => {
+    User.findById(id, function(err, user) {
+        done(err, user);
+    });
+});
 app.use(passport.initialize());
 app.use(session);
 app.use(logger("dev"));
