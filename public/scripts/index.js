@@ -219,7 +219,7 @@
             postDiv.append(innerDiv);
             if (post.image) {
                 const imageDiv = $(document.createElement("div")).addClass("il").prop("vertical-align", "top");
-                imageDiv.append($(document.createElement("img")).prop("src", post.image).prop("width", "84px").prop("height", "84px"));
+                imageDiv.append($(document.createElement("img")).prop("src", post.image)/*.prop("width", "84px").prop("height", "84px")*/);
                 innerDiv.append(imageDiv);
             }
             const userImageDiv = $(document.createElement("div")).addClass("il").prop("vertical-align", "top");
@@ -229,7 +229,7 @@
             userDiv.append(nameDiv);
             post.from.init((user) => {
                 nameDiv.append(user.name);
-                userImageDiv.append($(document.createElement("img").prop("src", user.picture)));
+                userImageDiv.append($(document.createElement("img")).prop("src", user.picture));
             });
             userDiv.append($(document.createElement("div")).addClass("time").append(post.timestamp));
             innerDiv.append(userDiv);
