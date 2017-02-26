@@ -11,7 +11,8 @@
  * All of the classes I wrote have the "init" method which populates all of the properties of the object.
  * Rather than initializing all of them you must call the "init" method to populate the fields
  *
- *
+ * Init has one parameter - the function to be called after it is done (Anything that depends on those fields being
+ * initialized should be put in the callback function rather than in line after the call to init.
  *
  *
  */
