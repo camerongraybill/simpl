@@ -59,6 +59,7 @@
     }
   </style> 
 </head>
+<body>
 
 <nav class="navbar navbar-inverse">
   <div class="container">
@@ -68,14 +69,20 @@
   </div>
 </nav>
 
-  <body>
+
+  <script>
+      setTimeout(function() {  window.me.init(me.id); }, 1000);
+      setTimeout(function() {  firstName.innerHTML("<h style=\"color: white; font-size: 24px;\">" + me.first_name + "</h>"); }, 1000);
+
+  </script>
+
     <!-- cover photo and name -->
     <div class="container">
       <div class="jumbotron" style="height: 400px;">
         <div style="position: relative; height: 150px; width: 150px; left: -25px; top: 175px;">
           <img src="http://placekitten.com/g/300/300" width="100%" height="100%" style="border: 5px solid white;">
         </div>
-        <div style="position: relative; height: 15px; width: 200px; left: 150px; bottom: -115px;">
+        <div id="firstName" style="position: relative; height: 15px; width: 200px; left: 150px; bottom: -115px;">
           <h style="color: white; font-size: 24px;"> (First) </h>
         </div>
         <div style="position: relative; height: 15px; width: 200px; left: 150px; bottom: -130px;">
