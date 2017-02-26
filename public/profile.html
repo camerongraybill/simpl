@@ -36,7 +36,7 @@
             let allDivs = "";
             $.each(me.friends, function (index, friend) {
                 let friendObj = friend.init();
-                let newFriend = document.createElement("div").data(friendObj);
+                let newFriend = $(document.createElement("div")).data(friendObj);
                 allDivs.append(newFriend);
                 console.log(friend);
             });
