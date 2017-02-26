@@ -270,6 +270,11 @@
             accessToken = userData.accessToken;
             initFb(function () {
                 window.me = new User(userData.id);
+                window.me.init((me) => {
+                    me.feed.init((feed) => {
+                        $.each(feed.posts, showPost);
+                    });
+                });
                 /*FB.api(
                     "/me/feed",
                     {
