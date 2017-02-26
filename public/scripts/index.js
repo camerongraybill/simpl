@@ -27,7 +27,7 @@
         }
 
         $.getJSON("/me").done(function (userData, resObject) {
-            let userLoginData = userData;
+            window.userLoginData = userData;
             initFb(function () {
                 FB.api(
                     "/me/feed",
