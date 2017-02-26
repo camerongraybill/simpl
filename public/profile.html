@@ -40,13 +40,13 @@
 //        }, 1000);
         setTimeout(function() {
             window.me.init(function() {
-                let newFriend = document.createElement("div");
-                let allDivs;
+//                let newFriend = document.createElement("div");
+                let allDivs = "";
                 $.each(me.friends, function(index, friend) {
-                    let newFriend = document.createElement("div").data(friend)
+                    let newFriend = document.createElement("div").data(friend);
                     allDivs.append(newFriend);
                     console.log(friend);
-                })
+                });
                 t3.innerHTML = allDivs;
             });}, 1000);
 //                <div class="img">
