@@ -222,11 +222,14 @@
                 imageDiv.append($(document.createElement("img")).prop("src", post.image).prop("width", "84px").prop("height", "84px"));
                 innerDiv.append(imageDiv);
             }
+            const userImageDiv = $(document.createElement("div")).addClass("il").prop("vertical-align", "top");
+            innerDiv.append(userImageDiv);
             const userDiv = $(document.createElement("div")).addClass("il").prop("vertical-align", "bottom");
             const nameDiv = $(document.createElement("p")).addClass("name");
             userDiv.append(nameDiv);
             post.from.init((user) => {
                 nameDiv.append(user.name);
+                userImageDiv.append($(document.createElement("img").prop("src", user.picture)));
             });
             userDiv.append($(document.createElement("div")).addClass("time").append(post.timestamp));
             innerDiv.append(userDiv);
