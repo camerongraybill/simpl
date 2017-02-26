@@ -103,8 +103,11 @@
 <body>
 
     <script>
-        let newUser = new User(window.me.access_token);
-        console.log("THIS ONE" + newUser.first_name)
+        Window.me.init((me) => {
+            $.each(me.friends, (index, friend) => {
+                friend.init(() => {console.log(friend);});
+            });
+        });
     </script>
 
 	<nav class="navbar navbar-inverse">
