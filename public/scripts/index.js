@@ -213,7 +213,7 @@
         }
     }
 
-    const postsDiv = ("#newsfeedPosts");
+    const postsDiv = $("#newsfeedPosts");
     function showPost(post) {
         post.init((post) => {
             const postDiv = $(document.createElement("div")).addClass("row center");
