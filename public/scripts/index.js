@@ -215,6 +215,7 @@
     const postsDiv = $("#newsfeedPosts");
     function showPost(post) {
         post.init((post) => {
+            console.log(post);
             const postDiv = $(document.createElement("div")).addClass("row center");
             const innerDiv = $(document.createElement("div")).addClass("col-sm-offset-3 col-sm-6 well").prop("align", "left");
             postDiv.append(innerDiv);
@@ -272,7 +273,6 @@
                 window.me.init((me) => {
                     me.feed.init((feed) => {
                         $.each(feed.posts, (index, post) => {
-                            console.log(post);
                             showPost(post);
                         });
                     });
