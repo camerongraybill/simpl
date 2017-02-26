@@ -41,7 +41,7 @@
                         }
                         $.each(response.data, (index, item) => {
                             console.log(item);
-                            FB.api("/" + item.id + "/likes", {access_token: userLoginData.accessToken, fields: "id,admin_creator,application,call_to_action,caption,description,message,name,icon,from"}, (response) => {
+                            FB.api("/" + item.id + "/attachments", {access_token: userLoginData.accessToken, fields: "id,admin_creator,application,call_to_action,caption,description,message,name,icon,from"}, (response) => {
                                 console.log(response);
                             });
                         });
