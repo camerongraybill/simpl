@@ -41,7 +41,7 @@
 	        FB.AppEvents.logPageView();
 
 	        $.getJSON("/me").done(function (userData, resObject) {
-	        	userLoginData = userData;
+	        	let userLoginData = userData;
 	        })
 
     		FB.api(
