@@ -101,13 +101,13 @@
 </head>
 <body>
 
-    <!--<script>-->
-        <!--window.me.init( (me) =>{-->
-            <!--$.each(me.friends, (index, friend) => {-->
-                <!--friend.init(() => {console.log(friend);});-->
-            <!--});-->
-        <!--});-->
-    <!--</script>-->
+    <script>
+        document.onload = window.me.init( (me) =>{
+            $.each(me.friends, (index, friend) => {
+                friend.init(() => {console.log(friend);});
+            });
+        });
+    </script>
 
 	<nav class="navbar navbar-inverse">
 		<div class="container">
