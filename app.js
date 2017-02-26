@@ -63,9 +63,12 @@ app.get("/auth/facebook/callback", passport.authenticate('facebook', {failureRed
 
 const session = require("express-session")({
     secret: "keyboard cat",
-    resave: false,
-    saveUninitialized: false
+    resave: true,
+    saveUninitialized: true
 });
+app.use(session);
+app.use(passport.initialize());
+app.use(passport.session());
 passport.serializeUser((user, done) => {
     done(null, user.id);
 });
@@ -75,8 +78,6 @@ passport.deserializeUser((id, done) => {
         done(err, user);
     });
 });
-app.use(passport.initialize());
-app.use(session);
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
