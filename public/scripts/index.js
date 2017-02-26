@@ -4,7 +4,6 @@
 (function () {
     "use strict";
     let accessToken;
-    let initializedObjects = {};
     class User {
         constructor (userId) {
             this.id = userId;
@@ -13,7 +12,7 @@
             FB.api("/" + this.id,
                 {
                     access_token: accessToken,
-                    fields: "first_name,last_name,name,cover,picture,friends"
+                    fields: "first_name,last_name,name,cover,picture"
                 },
                 (response) => {
                     if (response && !response.error) {
@@ -23,12 +22,6 @@
                         this.cover = response.cover.source;
                         this.picture = response.picture.data.url;
                         this.feed = new Feed(this.id);
-                        this.friends = [];
-                        if (response.friends) {
-                            $.each(response.friends.data, (ignore, friend) => {
-                                this.friends.push(new User(friend.id));
-                            });
-                        }
                     } else {
                         throw new Error("Error loading User " + this.id + ": " + JSON.stringify(response));
                     }
