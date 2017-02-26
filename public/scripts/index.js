@@ -58,6 +58,7 @@
             this.comments = [];
             this.likes = [];
             this.message = "";
+            this.story = "";
             FB.api("/" + this.id,
                 {
                     access_token: accessToken,
@@ -78,6 +79,9 @@
                         }
                         if (response.attachments && response.attachments.data[0].media.image.src) {
                             this.image = response.attachments.data[0].media.image.src;
+                        }
+                        if (response.story) {
+                            this.story = response.story;
                         }
                         this.message = response.message;
                     } else {
