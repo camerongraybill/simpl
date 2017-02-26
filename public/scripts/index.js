@@ -23,7 +23,7 @@
         constructor (userId) { //<---- CONSTRUCTOR
             this.id = userId;
         }
-        init () {
+        init (callback) {
             FB.api("/" + this.id,
                 {
                     access_token: accessToken,
@@ -43,6 +43,7 @@
                                 this.friends.push(new User(friend.id));
                             });
                         }
+                        callback(this);
                     } else {
                         throw new Error("Error loading User " + this.id + ": " + JSON.stringify(response));
                     }
@@ -54,7 +55,7 @@
         constructor (commentId) {
             this.id = commentId;
         }
-        init () {
+        init (callback) {
             this.from = null;
             this.message = "";
             FB.api("/" + this.id,
@@ -65,6 +66,7 @@
                     if (response && !response.error) {
                         this.message = response.message;
                         this.from = new User(response.from.id);
+                        callback(this);
                     } else {
                         throw new Error("Error loading comment " + this.id + ": " + JSON.stringify(response));
                     }
@@ -77,7 +79,7 @@
             this.id = postId;
         }
 
-        init () {
+        init (callback) {
             this.comments = [];
             this.likes = [];
             this.message = "";
@@ -108,6 +110,7 @@
                         }
                         this.timestamp = response.created_time;
                         this.message = response.message;
+                        callback(this);
                     } else {
                         throw new Error("Error loading post " + this.id + ": " + JSON.stringify(response));
                     }
@@ -120,7 +123,7 @@
             this.userId = userId;
         };
 
-        init() {
+        init(callback) {
             this.posts = [];
             FB.api("/" + this.userId + "/feed",
                 {
@@ -132,14 +135,14 @@
                             this.posts.push(new Post(post.id));
                         });
                         this.nextPostsCall = response.paging.next;
+                        callback(this);
                     } else {
                         throw new Error("Invalid User ID " + this.userId + " passed to Feed Init" + ": " + JSON.stringify(response));
                     }
                 });
             return this;
         }
-
-        morePosts() {
+        morePosts(callback) {
             if (this.nextPostsCall) {
                 $.getJSON(this.nextPostsCall, (response) => {
                     if (response && !response.error) {
@@ -147,6 +150,7 @@
                             this.posts.push(new Post(post.id));
                         });
                         this.nextPostsCall = response.paging.next;
+                        callback(this);
                     } else {
                         throw new Error("Error while finding more Posts for user " + this.userId + ": " + JSON.stringify(response));
                     }
