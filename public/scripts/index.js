@@ -215,7 +215,6 @@
     const postsDiv = $("#newsfeedPosts");
     function showPost(post) {
         post.init((post) => {
-            console.log(post);
             const postDiv = $(document.createElement("div")).addClass("row center");
             const innerDiv = $(document.createElement("div")).addClass("col-sm-offset-3 col-sm-6 well").prop("align", "left");
             postDiv.append(innerDiv);
@@ -240,6 +239,7 @@
             buttonsDiv.append($(document.createElement("button")).prop("type", "button").addClass("btn btn-default")).append("Comment");
             postDiv.append(buttonsDiv);
             postsDiv.append(postDiv);
+            console.log(postDiv);
         });
     }
     $(document).ready(function () {
