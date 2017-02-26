@@ -28,11 +28,6 @@ app.set("view engine", "jade");
 
 
 
-app.get("/auth/facebook", passport.authenticate("facebook"));
-
-app.get("/auth/facebook/callback", passport.authenticate('facebook', {failureRedirect: '/login'}), (req, res) => {
-    res.redirect("/");
-});
 
 const session = require("express-session")({
     secret: "keyboard cat",
@@ -84,6 +79,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+
+
+app.get("/auth/facebook", passport.authenticate("facebook"));
+
+app.get("/auth/facebook/callback", passport.authenticate('facebook', {failureRedirect: '/login'}), (req, res) => {
+    res.redirect("/");
+});
 
 // catch 404 and forward to error handler
 
