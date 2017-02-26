@@ -64,7 +64,7 @@
 
     <script>
         setTimeout(function() { console.log(window.me); }, 1000);
-        setTimeout(function() { window.me.init( firstName.innerHTML = me.first_name ); }, 1000);
+        setTimeout(function() { window.me.init($("#firstName").html(me.first_name)); }, 1000);
         //setTimeout(function () { console.log(me.first_name); }, 2000);
     </script>
 
