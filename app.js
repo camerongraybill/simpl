@@ -38,7 +38,7 @@ app.use(session);
 passport.use(new facebookStrategy({
         clientID: config.facebookSettings.id,
         clientSecret: config.facebookSettings.secret,
-        callbackURL: "http://simpl.eastus.cloudapp.azure.com/auth/facebook/callback",
+        callbackURL: "http://144.118.77.185/auth/facebook/callback",
     },
     (accessToken, refreshToken, profile, callback) => {
         const newGuy = new User();
