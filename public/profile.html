@@ -68,6 +68,11 @@
                 firstName.innerHTML = "\<h style=\"color\: white\; font-size\: 24px\;\">" + me.first_name + "\<\/h>"
             });
         }, 1000);
+        setTimeout(function() {
+            window.me.init(function() {
+                lastName.innerHTML = "\<h style=\"color\: white\; font-size\: 24px\;\">" + me.last_name + "\<\/h>"
+            });
+        }, 1000);
     </script>
 
     <nav class="navbar navbar-inverse">
@@ -87,7 +92,7 @@
         <div id="firstName" style="position: relative; height: 15px; width: 200px; left: 150px; bottom: -115px;">
           <h style="color: white; font-size: 24px;"> (First) </h>
         </div>
-        <div style="position: relative; height: 15px; width: 200px; left: 150px; bottom: -130px;">
+        <div id="lastName" style="position: relative; height: 15px; width: 200px; left: 150px; bottom: -130px;">
           <h style="color: white; font-size: 24px;"> (Last) </h>
         </div>
       </div>
