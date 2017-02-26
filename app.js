@@ -87,6 +87,14 @@ app.get("/auth/facebook/callback", passport.authenticate('facebook', {failureRed
     res.redirect("/");
 });
 
+app.get("/me", (req, res) => {
+    if (req.user) {
+        res.json(req.user);
+    } else {
+        res.send(401);
+    }
+});
+
 // catch 404 and forward to error handler
 
 app.use((req, res, next) => {
